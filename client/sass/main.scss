@@ -1,0 +1,92 @@
+@import 'functions';
+
+.main {
+    margin-top: $height_nav;
+    padding: 1em;
+}
+
+.profile-section {
+    @include width(100%);
+    background-color: color(white);
+    border-radius: 5px;
+    box-shadow: 0 0 1px rgba(color(shadow), .4);
+    overflow: hidden;
+
+    .profile-cover {
+        background-position: center;
+        background-clip: border-box;
+        position: relative;
+        text-align: center;
+        @include width(100%, 12em);
+
+        .name, .location {
+            position: relative;
+        }
+
+        .name {
+            display: block;
+            font-size: 2em;
+            text-shadow: 0 0 20px color(white);
+        }
+
+        .location {
+            color: color(white);
+            display: block;
+            font-size: .8em;
+        }
+    }
+
+    .cover-filter {
+        $opacity: .3;
+        &:before {
+            background-color: color(black);
+            content: "";
+            left: 0;
+            opacity: $opacity;
+            position: absolute;
+            top: 0;
+            @include width(100%, 100%);
+        }
+    }
+
+    .profile-avatar {
+        $size: 6em;
+        @include width($size, $size);
+
+        border-radius: 50%;
+        margin: 0 auto;
+        overflow: hidden;
+        position: relative;
+
+        img {
+            @include width(100%, 100%);
+        }
+    }
+
+    .info-profile-card {
+        padding: 1em;
+        border-bottom: 1px solid color(grey);
+
+        h3 {
+            color: color(text);
+            font-size: 1em;
+            margin: 0 0 .5em 0;
+            text-transform: uppercase;
+        }
+
+        .contact-item {
+            margin-bottom: .5em;
+            margin-left: 1.5em;
+
+            a {
+                color: inherit;
+                text-decoration: none;
+            }
+        }
+    }
+
+    .description {
+        margin: 0 0 .4em 0;
+        text-align: center;
+    }
+}
