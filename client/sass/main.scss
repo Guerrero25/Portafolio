@@ -63,7 +63,7 @@
             position: relative;
     
             img {
-                @include width(100%, 100%);
+                @include width(100%);
             }
         }
     
