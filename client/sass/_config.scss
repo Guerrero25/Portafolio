@@ -9,26 +9,12 @@ $colors: (
     text: #212121
 );
 
+$breakpoints: (
+    small: 767px,
+    medium: 992px,
+    large: 1200px
+);
+
 // Variables
 $height_nav: 4em;
-
-// Resets
-* {
-    box-sizing: border-box;
-}
-
-body,
-ul,
-ol,
-html,
-figure,
-nav {
-    margin: 0;
-    padding: 0;
-}
-
-body {
-    background-color: map-get($colors, grey);
-    font-family: 'Nunito', sans-serif;
-}
-
+$max_main_width: 78em;

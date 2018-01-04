@@ -1,92 +1,192 @@
 @import 'functions';
 
 .main {
+    $padding: 1em;
+    margin: 0 auto;
     margin-top: $height_nav;
-    padding: 1em;
-}
+    max-width: $max_main_width;
+    padding: $padding;
+    @include flex($direction: column);
 
-.profile-section {
-    @include width(100%);
-    background-color: color(white);
-    border-radius: 5px;
-    box-shadow: 0 0 1px rgba(color(shadow), .4);
-    overflow: hidden;
-
-    .profile-cover {
-        background-position: center;
-        background-clip: border-box;
-        position: relative;
-        text-align: center;
-        @include width(100%, 12em);
-
-        .name, .location {
-            position: relative;
-        }
-
-        .name {
-            display: block;
-            font-size: 2em;
-            text-shadow: 0 0 20px color(white);
-        }
-
-        .location {
-            color: color(white);
-            display: block;
-            font-size: .8em;
-        }
-    }
-
-    .cover-filter {
-        $opacity: .3;
-        &:before {
-            background-color: color(black);
-            content: "";
-            left: 0;
-            opacity: $opacity;
-            position: absolute;
-            top: 0;
-            @include width(100%, 100%);
-        }
-    }
-
-    .profile-avatar {
-        $size: 6em;
-        @include width($size, $size);
-
-        border-radius: 50%;
-        margin: 0 auto;
+    .profile-section {
+        max-width: $max_main_width/3 - $padding*2;
+        background-color: color(grey);
+        border-radius: 5px;
+        // box-shadow: 0 0 1px rgba(color(shadow), .4);
         overflow: hidden;
-        position: relative;
+    
+        .profile-cover {
+            background-position: center;
+            background-clip: border-box;
+            position: relative;
+            text-align: center;
+            @include width(100%, 12em);
+    
+            .name, .location {
+                position: relative;
+            }
+    
+            .name {
+                display: block;
+                font-size: 2em;
+                text-shadow: 0 0 20px color(white);
+            }
+    
+            .location {
+                color: color(white);
+                display: block;
+                font-size: .8em;
+            }
+        }
+    
+        .cover-filter {
+            $opacity: .3;
+            &:before {
+                background-color: color(black);
+                border-radius: inherit;
+                content: "";
+                left: 0;
+                opacity: $opacity;
+                position: absolute;
+                top: 0;
+                @include width(100%, 100%);
+            }
+        }
+    
+        .profile-avatar {
+            $size: 6em;
+            @include width($size, $size);
+    
+            border-radius: 50%;
+            margin: 0 auto;
+            overflow: hidden;
+            position: relative;
+    
+            img {
+                @include width(100%, 100%);
+            }
+        }
+    
+        .info-profile-card {
+            background: color(white);
+            border-radius: .2em;
+            margin-top: .4em;
+            padding: 1em;
 
-        img {
-            @include width(100%, 100%);
+            .description {
+                margin: 0;
+                margin-bottom: .4em;
+                text-align: center;
+            }
+    
+            .contact-item {
+                margin-bottom: .5em;
+                margin-left: 1.5em;
+    
+                i {
+                    padding: .2em;
+                }
+
+                span {
+                    margin-left: 1em;
+                }
+
+                a {
+                    color: inherit;
+                    text-decoration: none;
+                }
+            }
+
+            .skills {
+                @include flex();
+                $color: rgba(color(black), .6);
+                $margen: .8em;
+
+                .skill {
+                    border: 1px solid $color;
+                    border-radius: .5em;
+                    color: $color;
+                    cursor: pointer;
+                    font-size: .7em;
+                    font-weight: bold;
+                    margin-bottom: $margen;
+                    margin-right: $margen;
+                    padding: .5em .9em;
+                    text-transform: uppercase;
+
+                    &:hover {
+                        background-color: $color;
+                        color: color(white);
+                    }
+                }
+            }
+            
         }
     }
 
-    .info-profile-card {
-        padding: 1em;
-        border-bottom: 1px solid color(grey);
+    .project-section {
+        $max_width: ($max_main_width/3)*2 - $padding*2;
+        max-width: $max_width;
 
-        h3 {
-            color: color(text);
-            font-size: 1em;
-            margin: 0 0 .5em 0;
-            text-transform: uppercase;
-        }
+        .projects-content {
+            @include flex();
+            margin: 0 $padding;
 
-        .contact-item {
-            margin-bottom: .5em;
-            margin-left: 1.5em;
+            .project-item {
+                @include width($max_width/2 - $padding*2);
+                background-color: color(white);
+                border-radius: .4em;
+                margin: 0;
+                margin-bottom: .5em;
+                padding: $padding;
 
-            a {
-                color: inherit;
-                text-decoration: none;
+                .project-cover {
+                    @include width(100%);
+
+                    img {
+                        @include width(100%);
+                    }
+                }
+
+                .skills-used {
+                    $color: rgba(color(black), .6);
+                    margin: 0 .5em;
+
+                    .skill-used {
+                        border: 1px solid $color;
+                        border-radius: .75em;
+                        font-size: .7em;
+                        line-height: 1.5em;
+                        padding: .2em .7em;
+
+                        &:hover {
+                            background-color: $color;
+                            color: color(white);
+                        }
+                    }
+
+                    .reposite-url {
+                        color: color(text);
+                    }
+                }
             }
         }
     }
+}
 
-    .description {
-        margin: 0 0 .4em 0;
-        text-align: center;
+@include respond-to(large) {
+    .main {
+        align-items: center;
+        flex-direction: row;
+        justify-content: space-around;
+
+        h1 {
+            text-align: left;
+        }
+
+        .project-section {
+            padding: 0 .5em;
+        }
     }
 }
+

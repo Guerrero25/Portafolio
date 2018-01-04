@@ -39,7 +39,7 @@ gulp.task('serve', ['styles', 'images'], function () {
         server: './'
     })
     
-    gulp.watch(paths.styles, ['styles', 'images']);
+    gulp.watch(paths.styles, ['styles', 'images'], browserSync.reload);
     gulp.watch('./index.html', ['styles', 'images']).on('change', browserSync.reload);
     gulp.watch(paths.images, ['styles', 'images'], browserSync.reload);
 });
