@@ -6,7 +6,7 @@
     margin-top: $height_nav;
     max-width: $max_main_width;
     padding: $padding;
-    @include flex($direction: column);
+    @include flex($direction: column, $justify: flex-start);
 
     .profile-section {
         max-width: $max_main_width/3 - $padding*2;
@@ -133,7 +133,7 @@
             margin: 0 $padding;
 
             .project-item {
-                @include width($max_width/2 - $padding*2);
+                max-width: $max_width/2 - $padding*2;
                 background-color: color(white);
                 border-radius: .4em;
                 margin: 0;
@@ -176,7 +176,7 @@
 
 @include respond-to(large) {
     .main {
-        align-items: center;
+        align-items: flex-start;
         flex-direction: row;
         justify-content: space-around;
 
