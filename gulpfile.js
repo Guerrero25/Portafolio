@@ -8,8 +8,8 @@ const browserSync = require('browser-sync');
 const imagemin = require('gulp-imagemin');
 
 const paths = {
-    styles: ['client/sass/**/*.scss'],
-    images: 'client/img/**/*'
+    styles: ['src/sass/**/*.scss'],
+    images: 'src/img/**/*'
 };
 
 gulp.task('clean', function () {
