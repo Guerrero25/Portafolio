@@ -3,7 +3,6 @@
 .main {
     $padding: 1em;
     margin: 0 auto;
-    margin-top: $height_nav;
     max-width: $max_main_width;
     padding: $padding;
     @include flex($direction: column, $justify: flex-start);
